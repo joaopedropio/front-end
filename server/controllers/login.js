@@ -6,8 +6,12 @@ module.exports.index = (req, res) => {
 }
 
 module.exports.validateLogin = (req, res) => {
-    const body = req.body;
-    http.get(url + "/user/users/" + body.username, (resp) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    if(username == '') {
+        return res.status(400).json({status: "all fields required"});
+    }
+    http.get(url + "/user/" + username, (resp) => {
         let data = '';
     
         // A chunk of data has been recieved.
@@ -17,12 +21,17 @@ module.exports.validateLogin = (req, res) => {
         
         // The whole response has been received. Print out the result.
         resp.on('end', () => {
+            if(data == '') {
+                return res.status(200).json({status: "no user"});
+            }
+
             let json = JSON.parse(data);
-            if(json.username == body.username){
-                if(json.password == json.password) {
-                    res.status(200).json({status: "deu certo"});
+            if(json.username == username){
+                if(json.password == password) {
+                    return res.status(200).json({status: "deu certo"});
                 }
             }
+            return res.status(200).json({status: "user/password is incorrect"});
         });
     }).on("error", (err) => {
         console.log("Error: " + err.message);
