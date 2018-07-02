@@ -9,5 +9,5 @@ app.use(express.static(__dirname + '/client/public'));
 app.use(express.static(__dirname + '/client/views'));
 app.use('/', routes);
 
-const { port, domain } = require('./configs/app');
-app.listen(port, () => console.log(`Running on http://${domain}:${port}`));
+const { appPort } = require('./configs/app');
+app.listen(appPort, () => console.log(`Running on port ${appPort}...`));

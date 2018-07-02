@@ -3,18 +3,3 @@ services:
   frontend:
     build: .
     image: front-end
-    depends_on:
-      - mongo
-    environment:
-      - DB_DOMAIN=mongo
-    networks:
-      - socialnetwork
-      - userapinetwork
-  mongo:
-    image: mongo
-    networks:
-      - userapinetwork
-networks:
-  socialnetwork:
-    external: true
-  userapinetwork:
