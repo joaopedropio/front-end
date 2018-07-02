@@ -1,4 +1,3 @@
-const http = require('http');
 const request = require('request');
 const { userApiUrl } = require("../../configs/app");
 
@@ -13,7 +12,7 @@ module.exports.validateLogin = (req, res) => {
         return res.status(400).json({status: "all fields required"});
     }
 
-    let url = userApiUrl + "users/" + username;
+    let url = userApiUrl + username;
 
     request.get(url, (error, response, body) => {
         if(error) return res.status(400).json(JSON.stringify(error));

@@ -3,3 +3,6 @@ services:
   frontend:
     build: .
     image: front-end
+    environment:
+      - APP_PORT=80
+      - USERAPI_URL=http://neuromancer.minivps.info:3000/userapi/users/
