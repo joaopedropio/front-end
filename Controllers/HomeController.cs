@@ -6,7 +6,7 @@ namespace FrontEnd.Controllers
     {
         public IActionResult Index()
         {
-            return RedirectToAction("Index", "MainMenu");
+            return RedirectToAction("Login", "Account");
         }
     }
 }
