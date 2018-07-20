@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace SocialMovie.Controllers
+namespace FrontEnd.Controllers
 {
     public class HomeController : Controller
     {
