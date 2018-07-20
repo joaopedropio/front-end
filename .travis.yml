@@ -1,12 +1,13 @@
-language: node_js
+language: csharp
 
-node_js:
-  - 9.3.0
+mono: none
+
+dotnet: 2.0.0
 
 services:
   - docker
 
-after_success:
+script:
   - docker build -t joaopio/front-end .
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker push joaopio/front-end

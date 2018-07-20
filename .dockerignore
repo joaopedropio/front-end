@@ -1,6 +1,8 @@
-node_modules
-.travis.yml
-.eslintrc.json
-docker-compose.yml
-README.
+out
+obj
+bin
+.git
+.vs
 .vscode
+.gitignore
+*.user

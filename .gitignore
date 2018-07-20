@@ -1,2 +1,9 @@
+obj
+bin
+out
+.vs
 .vscode
-node_modules
+*.min.css
+*.min.js
+wwwroot/lib/*
+*.user

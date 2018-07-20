@@ -1,0 +1,29 @@
+﻿@using SocialMovie.Models
+@using System.Collections.Generic
+@model Serie
+
+<h1></h1>
+
+<div class="container-fluid" align="center">
+    @{  foreach (var ep in Model.Episodes)
+        {
+        <div class="row">
+            <div class="offset-1 col-10 offset-1">
+                <div class="row rounded" style="background-color: #CCCCCC">
+                    <div class="offset-sm-2 col-sm-8 offset-sm-2">
+                        <p><a href="/Player/PlayerEpisode/@ep.Id">S: @ep.SNumber, E: @ep.ENumber</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    }
+   
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>

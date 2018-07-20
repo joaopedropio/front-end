@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using SocialMovie.Models
+@using System.Collections.Generic
+@model IEnumerable<Content>
+@*<h1>Main Menu</h1>*@
+<div class="container-fluid" align="center">
+    <br />
+@{ 
+    foreach(var x in @Model) { 
+    <div class="row"  >
+        <div class="offset-1 col-10 offset-1" >
+            <div class="row rounded" style="background-color: #CCCCCC">
+                <div class="col-sm-4">
+                    <div>
+                        <a href="/Player/Index/@x.Id?type=@x.Type" >
+                            <img src="https://socialmovie.sytes.net:4000/split/split.jpg" alt="" class="img-thumbnail">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <br />
+                    <div class="d-inline-flex p-2 rounded" style="background-color: #AAAAAA">
+                        <h2><u>@x.Name</u></h2>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="rounded" style="background-color: #AAAAAA">
+                        <h4>@x.Description</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    }
+}
+
+
+
+</div>

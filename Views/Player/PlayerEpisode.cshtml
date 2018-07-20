@@ -1,0 +1,33 @@
+﻿@using SocialMovie.Models
+@using System.Collections.Generic
+@model Episode
+
+<h1></h1>
+
+<div class="container-fluid" align="center">
+    @{
+        <div class="row">
+            <div class="offset-1 col-10 offset-1">
+                <div class="row rounded" style="background-color: #CCCCCC">
+                    <div class="offset-sm-2"></div>
+                    <div class="col-sm-8">
+                        <br />
+                        <div align="center" class="embed-responsive embed-responsive-4by3" style="background-color: #5e5e5e">
+                            <video class="embed-responsive-item rounded" id="video_@Model.Id" 
+                                   onClick="setupVideo('https', 'socialmovie.myddns.rocks','4000','@Model.VideoFile.Path', '@Model.VideoFile.Name', '@Model.VideoFile.Extension', '@Model.Id')" controls></video>
+                        </div>
+                    </div>
+                    <div class="offset-sm-2"></div>
+                </div>
+            </div>
+        </div>
+    }
+    
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
