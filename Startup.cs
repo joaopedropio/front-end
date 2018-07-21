@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FrontEnd.Clients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UserClientLib;
 
 namespace FrontEnd
 {
@@ -21,6 +23,7 @@ namespace FrontEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton(UserClientFactory.GetUserClientInstance());
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

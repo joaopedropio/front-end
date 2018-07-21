@@ -11,12 +11,14 @@ namespace FrontEnd
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
-        }
+            var config = new Configuration();
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+            var web = WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseUrls(config.URL)
                 .Build();
+
+            web.Run();
+        }
     }
 }

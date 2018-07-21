@@ -1,0 +1,30 @@
+﻿using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace FrontEnd
+{
+    public class Configuration
+    {
+        public string Port { get; set; }
+        public string Domain { get; set; }
+        public string URL { get; set; }
+        public string UserApiURL { get; set; }
+
+        public Configuration()
+             : this(new ConfigurationBuilder().AddEnvironmentVariables().Build())
+        {
+
+        }
+
+        public Configuration(IConfigurationRoot configuration)
+        {
+            this.Domain = configuration.GetValue<string>("API_DOMAIN") ?? "*";
+            this.Port = configuration.GetValue<string>("API_PORT") ?? "80";
+            this.URL = string.Format($"http://{this.Domain}:{this.Port}");
+            this.UserApiURL = configuration.GetValue<string>("USER_API_URL");
+        }
+    }
+}
