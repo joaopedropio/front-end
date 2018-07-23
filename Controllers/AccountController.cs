@@ -27,9 +27,9 @@ namespace FrontEnd.Controllers
         {
             if(await userClient.IsUserPasswordCorrect(username, password))
             {
-                return View();
+                return RedirectToAction("Index", "Player");
             }
-            return View();
+            return View("Login");
         }
 
         [Route("register")]
