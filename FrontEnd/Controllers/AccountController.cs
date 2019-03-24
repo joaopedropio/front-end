@@ -25,7 +25,7 @@ namespace FrontEnd.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromForm] string username, [FromForm] string password)
         {
-            if(await userClient.IsUserPasswordCorrect(username, password))
+            if(await userClient.IsAuthentic(username, password))
             {
                 return RedirectToAction("Index", "Player");
             }
@@ -45,8 +45,8 @@ namespace FrontEnd.Controllers
         {
             try
             {
-                var user = new UserModel(username, email, username);
-                await userClient.PostUser(user, password);
+                var user = new User(username, email, username, "", "", "");
+                await userClient.Post(user, password);
                 return View("Login");
             }
             catch (System.Exception)
